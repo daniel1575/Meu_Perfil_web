@@ -27,7 +27,7 @@
             padding: 15px;
             margin-bottom: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -57,7 +57,34 @@
                 <p>Sexo: ${perfil.sexo}</p>
             `;
         }
+        async function carregarDados() {
+            const perfilReq = fetch('http://localhost:3000/endereco');
 
+            const [perfilRes] = await Promise.all([perfilReq]);
+
+            const perfil = await perfilRes.json();
+
+            document.getElementById('perfil').innerHTML = `
+                <h2>Perfil</h2>
+                <p>Rua: ${perfil.rua}</p>
+                <p>Bairro: ${perfil.bairro}</p>
+                <p>Cep: ${perfil.cep}</p>
+            `;
+        }
+        async function carregarDados() {
+            const perfilReq = fetch('http://localhost:3000/escolaridade');
+
+            const [perfilRes] = await Promise.all([perfilReq]);
+
+            const perfil = await perfilRes.json();
+
+            document.getElementById('perfil').innerHTML = `
+                <h2>Perfil</h2>
+                <p>Escola: ${perfil.escola}</p>
+                <p>Curso: ${perfil.curso}</p>
+                <p>Conclusão: ${perfil.conclusao}</p>
+            `;
+        }
         carregarDados();
     </script>
 
