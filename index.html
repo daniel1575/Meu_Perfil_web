@@ -40,8 +40,8 @@
 
             const perfil = await perfilRes.json();
 
-            document.getElementById('perfil').innerHTML = `
-                <h2>Perfil</h2>
+            document.getElementById('endereco').innerHTML = `
+                <h2>Endereço</h2>
                 <p>Rua: ${perfil.rua}</p>
                 <p>Bairro: ${perfil.bairro}</p>
                 <p>Cep: ${perfil.cep}</p>
@@ -54,8 +54,8 @@
 
             const perfil = await perfilRes.json();
 
-            document.getElementById('perfil').innerHTML = `
-                <h2>Perfil</h2>
+            document.getElementById('escolaridade').innerHTML = `
+                <h2>Escolaridade</h2>
                 <p>Escola: ${perfil.escola}</p>
                 <p>Curso: ${perfil.curso}</p>
                 <p>Conclusão: ${perfil.conclusao}</p>
