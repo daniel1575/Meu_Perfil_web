@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Aluno</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 400px;
+            text-align: center;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Dados do Aluno</h1>
+
+        <div class="card" id="perfil"></div>
+        <div class="card" id="endereco"></div>
+        <div class="card" id="escolaridade"></div>
+    </div>
+
+    <script>
+        async function carregarDados() {
+            const perfilReq = fetch('http://localhost:3000/meu_perfil');
+
+            const [perfilRes] = await Promise.all([perfilReq]);
+
+            const perfil = await perfilRes.json();
+
+            document.getElementById('perfil').innerHTML = `
+                <h2>Perfil</h2>
+                <p>Nome: ${perfil.nome}</p>
+                <p>Idade: ${perfil.idade}</p>
+                <p>Sexo: ${perfil.sexo}</p>
+            `;
+        }
+
+        carregarDados();
+    </script>
+
+</body>
+
+</html>
