@@ -33,7 +33,7 @@
                 <p>Sexo: ${perfil.sexo}</p>
             `;
         }
-        async function carregarDados() {
+        async function carregarEndereco() {
             const perfilReq = fetch('http://localhost:3000/endereco');
 
             const [perfilRes] = await Promise.all([perfilReq]);
@@ -47,7 +47,7 @@
                 <p>Cep: ${perfil.cep}</p>
             `;
         }
-        async function carregarDados() {
+        async function carregarEscolaridade() {
             const perfilReq = fetch('http://localhost:3000/escolaridade');
 
             const [perfilRes] = await Promise.all([perfilReq]);
@@ -62,6 +62,8 @@
             `;
         }
         carregarDados();
+        carregarEndereco();
+        carregarEscolaridade();
     </script>
 
 </body>
